@@ -44,8 +44,9 @@ async function onSubmit (e) {
 
     renderGallery(imageData);
     
-
-    Notify.success(`Hooray! We found ${imageData.totalHits} images.`);
+    if (imageData.totalHits !== 0) {
+        Notify.success(`Hooray! We found ${imageData.totalHits} images.`);
+    }
 
     searchImages.incrementPage();
 
