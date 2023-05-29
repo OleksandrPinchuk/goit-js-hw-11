@@ -36,12 +36,12 @@ img {
 }
 
 .search-form input[type='text']{
-border-radius: 4px;
-max-width: 500px;
-height: 40px;
-font-size: 16px;
-padding: 5px 5px 5px 10px;
-border: none;
+    border-radius: 4px;
+    max-width: 500px;
+    height: 40px;
+    font-size: 16px;
+    padding: 5px 5px 5px 10px;
+    border: none;
 }
 
 .seaerch-button{
