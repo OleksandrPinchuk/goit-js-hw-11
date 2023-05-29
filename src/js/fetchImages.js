@@ -12,7 +12,6 @@ export default class SearchImages {
     async fetchImages() {
 
         const images = await axios.get(`${BASE_URL}?key=${API_KEY}&q=${this.searchQuery}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${this.per_page}&page=${this.page}`);
-        console.log(images.data);
         return images.data;
     }
 

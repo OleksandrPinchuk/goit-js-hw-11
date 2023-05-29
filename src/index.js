@@ -31,7 +31,6 @@ async function onSubmit (e) {
     refs.loadMoreBtn.classList.add('hidden');
 
     searchImages.searchQuery = e.currentTarget.elements.searchQuery.value.trim();
-    console.log(e.currentTarget.elements);
 
     if (searchImages.searchQuery === '') {
         Notify.failure(`Please, enter your request`);
