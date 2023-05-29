@@ -28,6 +28,8 @@ async function onSubmit (e) {
     e.preventDefault();
     clearGallery();
 
+    refs.loadMoreBtn.classList.add('hidden');
+
     searchImages.searchQuery = e.currentTarget.elements.searchQuery.value.trim();
     console.log(e.currentTarget.elements);
 
@@ -41,6 +43,7 @@ async function onSubmit (e) {
     const imageData = await searchImages.fetchImages()
 
     renderGallery(imageData);
+    
 
     Notify.success(`Hooray! We found ${imageData.totalHits} images.`);
 
@@ -55,7 +58,7 @@ async function onLoadMore () {
     const loadMoreImages = await searchImages.fetchImages();
 
     renderGallery(loadMoreImages);
-    
+
     searchImages.incrementPage();
 
     if ((searchImages.page - 1) * 40 >= loadMoreImages.totalHits) {
@@ -66,9 +69,9 @@ async function onLoadMore () {
 function renderGallery(data) {
     try{
         if (data.totalHits === 0) {
-                // refs.loadBtn.classList.add('hidden');
-            Notify.failure(`Sorry, there are no images matching your search query. Please try again.`);
-            return;
+                refs.loadBtn.classList.add('hidden');
+                Notify.failure(`Sorry, there are no images matching your search query. Please try again.`);
+                return;
             }
 
         const imgCards = data.hits.map(({
